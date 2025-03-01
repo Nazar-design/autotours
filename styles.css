@@ -1,0 +1,275 @@
+@font-face {
+    font-family: 'Monomakh';
+    src: url('path/to/your/Monomakh.ttf') format('truetype'); /* Укажите путь к шрифту Monomakh */
+}
+
+body {
+    font-family: 'Monomakh', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #000;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.parallax {
+    background-image: url(image/background.jpg);
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(216, 238, 240);
+    text-shadow: 2px 2px 5px black;
+    animation: fadeIn 3.5s;
+    position: relative;
+}
+
+.parallax::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.nav-bar {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 2;
+}
+
+.nav-bar a {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #e6c28c;
+    padding: 10px 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-bar a:hover {
+    transform: scale(1.1);
+    background: #379316;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.parallax h1, .parallax p {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 1s forwards;
+    z-index: 1;
+}
+
+.parallax h1 {
+    font-size: 70px;
+    margin: 0;
+    animation-delay: 0.5s;
+}
+
+.parallax p {
+    font-size: 24px;
+    max-width: 80%;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.normal {
+    padding: 50px;
+    text-align: center;
+    background-color: #000;
+}
+
+.normal h2 {
+    color: #e6c28c;
+}
+
+.normal p {
+    color: white;
+}
+
+.packages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.package {
+    background: linear-gradient(45deg, #e6c28c, #379316);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+    animation: glow 2s infinite alternate;
+}
+
+.package:hover {
+    transform: scale(1.05);
+}
+
+.package h3 {
+    color: white;
+}
+
+.package ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.package ul li {
+    margin: 10px 0;
+}
+
+.package button {
+    background: #e6c28c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.package button:hover {
+    background: #379316;
+    transform: scale(1.1);
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #e6c28c;
+    }
+    100% {
+        box-shadow: 0 0 20px #379316;
+    }
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+}
+
+#contactForm input, #contactForm textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #444;
+    color: white;
+}
+
+#contactForm button {
+    padding: 10px;
+    background: #e6c28c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#contactForm button:hover {
+    background: #379316;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #e6c28c;
+}
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #e6c28c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    display: none;
+}
+
+#scrollToTop:hover {
+    background: #379316;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .parallax h1 {
+        font-size: 40px;
+    }
+    .parallax p {
+        font-size: 18px;
+    }
+    .nav-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-bar a {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+}

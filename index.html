@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автотуры по Европе</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="parallax">
+        <nav class="nav-bar">
+            <a href="#about">О проекте</a>
+            <a href="#packages">Пакеты услуг</a>
+            <a href="#contact">Написать Нам</a>
+        </nav>
+        <h1>Автотуры по Европе</h1>
+        <p>Путешествуйте в кругу таких же автолюбителей и искателей приключений, открывая для себя потрясающие маршруты Европы!</p>
+    </header>
+    
+    <section id="about" class="parallax" style="background-image: url(image/photo_2025-03-01_15-59-03.jpg);">
+        <h1>О проекте</h1>
+        <p>Мы – команда энтузиастов, которые исколесили Европу вдоль и поперек, исследовали потрясающие маршруты и вдохновились невероятными пейзажами. Теперь мы хотим поделиться этим опытом с вами! Наши автотуры – это не просто поездка, а возможность открыть для себя уникальные места, познакомиться с единомышленниками и создать воспоминания, которые останутся с вами на всю жизнь.</p>
+        <p>Мы предлагаем тщательно продуманные маршруты, учитывающие самые живописные дороги, лучшие остановки и удобные кемпинги. Присоединяйтесь к нам, и пусть дорога приведет вас к новым открытиям!</p>
+    </section>
+
+    <section id="packages" class="normal">
+        <h2>Пакеты услуг</h2>
+        <div class="packages">
+            <div class="package">
+                <h3>1. Просто ехать с нами</h3>
+                <ul>
+                    <li>Путешествие по красивым местам Европы.</li>
+                    <li>Жилье и кемпинги бронируют сами.</li>
+                </ul>
+                <button onclick="openForm('Просто ехать с нами')">Заказать</button>
+            </div>
+            <div class="package">
+                <h3>2. С бронированием жилья</h3>
+                <ul>
+                    <li>Едем вместе с нами.</li>
+                    <li>Мы бронируем отели и кемпинги.</li>
+                </ul>
+                <button onclick="openForm('С бронированием жилья')">Заказать</button>
+            </div>
+            <div class="package">
+                <h3>3. Все включено</h3>
+                <ul>
+                    <li>Бронируем отели и кемпинги.</li>
+                    <li>Помощь в дороге.</li>
+                    <li>Обзорные экскурсии по городам остановок.</li>
+                    <li>Прокат велосипедов и самокатов для поездок в горы и по городу.</li>
+                </ul>
+                <button onclick="openForm('Все включено')">Заказать</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="normal">
+        <h2>Написать Нам</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Ваше имя" required>
+            <input type="email" id="email" placeholder="Ваш email" required>
+            <textarea id="message" placeholder="Ваше сообщение" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2023 Автотуры по Европе. Все права защищены.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" title="Наверх">↑</button>
+
+    <script>
+        // Параллакс-эффект
+        document.addEventListener('scroll', function() {
+            const parallaxSections = document.querySelectorAll('.parallax');
+            parallaxSections.forEach(section => {
+                const scrollPosition = window.pageYOffset;
+                const sectionOffset = section.offsetTop;
+                const speed = 0.5;
+                const offset = (scrollPosition - sectionOffset) * speed;
+                section.style.backgroundPositionY = `${offset}px`;
+            });
+        });
+
+        // Кнопка "Наверх"
+        window.addEventListener('scroll', function() {
+            const scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Обработка формы
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+        });
+
+        // Открытие формы для заказа
+        function openForm(packageName) {
+            const name = prompt("Введите ваше имя:");
+            const phone = prompt("Введите ваш телефон:");
+            const email = prompt("Введите ваш email:");
+            if (name && phone && email) {
+                alert(`Спасибо, ${name}! Ваш заказ на пакет "${packageName}" принят. Мы свяжемся с вами по телефону ${phone} или email ${email}.`);
+            } else {
+                alert("Пожалуйста, заполните все поля.");
+            }
+        }
+    </script>
+</body>
+</html>
